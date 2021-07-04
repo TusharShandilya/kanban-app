@@ -1,5 +1,11 @@
+import { Title } from "../../UI";
+
 const HomePage = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Title>My Boards</Title>
+    </div>
+  );
 };
 
 export default HomePage;
