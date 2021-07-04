@@ -3,7 +3,7 @@ import { Title } from "../../UI";
 const HomePage = () => {
   return (
     <div>
-      <Title>My Boards</Title>
+      <Title className="is-text-centered">My Boards</Title>
     </div>
   );
 };

@@ -1,13 +1,23 @@
 :root {
   --color-primary: #34f;
+  --color-secondary: #34f;
+
   --color-text: #232425;
+  --color-text-inverted: #ececec;
+
+  --color-border: #b8b8b8;
+
   --color-bg-primary: #dcdcdc;
   --color-bg-secondary: #437ff7;
+
+  --color-info: #6673ff;
+  --color-success: #559c35;
+  --color-warning: #ecb726;
+  --color-danger: #b62d2d;
 }
 
 @import "reset";
 @import "utilities";
-
 
 *,
 *::after,
@@ -16,10 +26,4 @@
   padding: 0;
 
   box-sizing: inherit;
-}
-
-
-.app {
-  min-height: 100vh;
-  background-color: var(--color-bg-secondary);
 }

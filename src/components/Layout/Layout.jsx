@@ -1,10 +1,11 @@
-import React from "react";
+import Header from "./Header/Header";
+import styles from "./layout.module.scss";
 
 export const Layout = ({ children }) => {
   return (
-    <div className="app">
-      <header>head</header>
-      <main>{children}</main>
+    <div className={styles.app}>
+      <Header />
+      <main className={styles.main}>{children}</main>
       <footer>foot</footer>
     </div>
   );
