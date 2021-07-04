@@ -1,0 +1,22 @@
+:root {
+  --color-primary: #34f;
+  --color-text: #232425;
+  --color-bg-primary: #dcdcdc;
+  --color-bg-secondary: #437ff7;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: inherit;
+}
+
+@import "reset";
+
+.app {
+  min-height: 100vh;
+  background-color: var(--color-bg-secondary);
+}
