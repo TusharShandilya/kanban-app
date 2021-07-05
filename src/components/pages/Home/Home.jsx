@@ -1,10 +1,10 @@
-import { Title } from "../../UI";
+import { Heading } from "../../UI";
 
 const HomePage = () => {
   return (
-    <div>
-      <Title className="is-text-centered">My Boards</Title>
-    </div>
+    <>
+      <Heading className="is-text-centered">My Boards</Heading>
+    </>
   );
 };
 
