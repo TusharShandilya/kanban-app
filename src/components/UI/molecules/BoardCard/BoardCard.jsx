@@ -2,7 +2,7 @@ import { Heading } from "../../atoms";
 
 import styles from "./boardCard.module.scss";
 
-const BoardCard = ({ title, slug, background }) => {
+const BoardCard = ({ title, slug }) => {
   return (
     <div className={styles.card}>
       <Heading size="4">{title}</Heading>
