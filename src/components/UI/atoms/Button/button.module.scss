@@ -38,8 +38,12 @@
   }
 }
 
-.icon {
+.isIconOnly {
   width: initial;
+}
+
+.btnText {
+  margin-left: 0.4rem;
 }
 
 @mixin filledColor($color-main, $color-hover) {
@@ -110,7 +114,7 @@
 .loading {
   pointer-events: none;
   cursor: progress;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 .disabled {
   pointer-events: none;

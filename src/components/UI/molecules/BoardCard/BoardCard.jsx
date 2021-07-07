@@ -1,3 +1,5 @@
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+
 import { randomRgbValue } from "../../../../utils";
 import { Button, Heading } from "../../atoms";
 
@@ -14,9 +16,9 @@ const BoardCard = ({ title, slug }) => {
         {title}
       </Heading>
       <div className={styles.actions}>
-        <Button color="danger" icon aria-label="Delete this board" />
+        <Button color="danger" icon={faTrash} aria-label="Delete this board" />
 
-        <Button>go to board</Button>
+        <Button color="success">Go to board</Button>
       </div>
     </div>
   );

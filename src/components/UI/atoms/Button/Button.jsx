@@ -7,6 +7,9 @@
  * @param {boolean} isDisabled - is the button in a disabled state
  */
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+
 import classNames from "classnames";
 
 import styles from "./button.module.scss";
@@ -29,7 +32,7 @@ const Button = ({
     styles[`color-${color}-${variant}`],
     styles[`size-${size}`],
     {
-      [styles.icon]: !!icon,
+      [styles.isIconOnly]: !!icon && !children,
       [styles.loading]: isLoading,
       [styles.disabled]: isDisabled,
       [styles[variant + "-loading"]]: isLoading,
@@ -44,9 +47,16 @@ const Button = ({
     }
   };
 
+  const renderedIcon = isLoading ? (
+    <FontAwesomeIcon icon={faCircleNotch} spin />
+  ) : (
+    <FontAwesomeIcon icon={icon} />
+  );
+
   return (
     <button onClick={handleClick} className={buttonStyles} {...rest}>
-      {children}
+      {renderedIcon}
+      {children && <span className={styles.btnText}>{children}</span>}
     </button>
   );
 };
