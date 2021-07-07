@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getBoards } from "../../../api/axios";
-import { BoardCard, Heading } from "../../UI";
+import { BoardCard, Heading, Container } from "../../UI";
 
 const HomePage = () => {
   const [boards, setBoards] = useState([]);
@@ -16,16 +16,18 @@ const HomePage = () => {
   }, []);
 
   return (
-    <>
+    <Container size="fluid">
       <Heading className="is-text-centered">My Boards</Heading>
-      {boards.length ? (
-        boards.map((board) => (
-          <BoardCard title={board.title} slug={board.slug} />
-        ))
-      ) : (
-        <p>Loading...</p>
-      )}
-    </>
+      <Container size="lg">
+        {boards.length ? (
+          boards.map((board) => (
+            <BoardCard title={board.title} slug={board.slug} />
+          ))
+        ) : (
+          <p>Loading...</p>
+        )}
+      </Container>
+    </Container>
   );
 };
 
