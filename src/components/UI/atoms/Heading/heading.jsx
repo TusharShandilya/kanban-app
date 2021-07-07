@@ -3,15 +3,25 @@ import classNames from "classnames";
 import styles from "./heading.module.scss";
 /**
  *
- * @param {size} "1" | "2" | "3" | "4" | "5" | "6"
- * @returns a heading element according to size
+ * @param {string} size values: "1" | "2" | "3" | "4" | "5" | "6"
+ * @param {boolean} isInverted - makes the heading of inverted Text color
+ * @param {boolean} isBold - gives the heading a bigger font weight
  *
  */
-const Heading = ({ children, size = "3", className, ...rest }) => {
+const Heading = ({
+  children,
+  size = "3",
+  className,
+  isBold,
+  isInverted,
+  ...rest
+}) => {
   const headingStyles = classNames(
     styles.heading,
     className,
-    styles[`heading-${size}`]
+    styles[`heading-${size}`],
+    { [styles.isBold]: isBold },
+    { [styles.isInverted]: isInverted }
   );
 
   switch (size) {

@@ -17,7 +17,9 @@ const HomePage = () => {
 
   return (
     <Container size="fluid">
-      <Heading className="is-text-centered">My Boards</Heading>
+      <Heading isBold className="is-text-centered">
+        My Boards
+      </Heading>
       <Container size="lg">
         {!!boards ? <BoardCardList boards={boards} /> : <p>Loading...</p>}
       </Container>

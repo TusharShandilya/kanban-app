@@ -12,7 +12,7 @@ const BoardCard = ({ title, slug }) => {
 
   return (
     <div className={styles.card} style={boardStyles}>
-      <Heading size="4" className={styles.title}>
+      <Heading isInverted size="4" className={styles.title}>
         {title}
       </Heading>
       <div className={styles.actions}>
