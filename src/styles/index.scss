@@ -1,6 +1,9 @@
 :root {
-  --color-primary: #34f;
-  --color-secondary: #34f;
+  --color-primary: #3344ff;
+  --color-primary-hover: #1523c5;
+
+  --color-secondary: #ff9633;
+  --color-secondary-hover: #ca7627;
 
   --color-text: #232425;
   --color-text-inverted: #ececec;
@@ -11,9 +14,13 @@
   --color-bg-secondary: #437ff7;
 
   --color-info: #6673ff;
+  --color-info-hover: #404dd6;
   --color-success: #559c35;
+  --color-success-hover: #317014;
   --color-warning: #ecb726;
+  --color-warning-hover: #a88217;
   --color-danger: #b62d2d;
+  --color-danger-hover: #910b0b;
 }
 
 @import "reset";

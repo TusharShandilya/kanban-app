@@ -1,5 +1,6 @@
 .button {
-  line-height: 2.2rem;
+  line-height: 1.375rem;
+  margin: 0.125rem;
   border-radius: 5px;
   width: 100%;
 
@@ -8,24 +9,101 @@
   transition: all 0.2s;
   text-align: center;
   height: inherit;
+
+  border-width: 1px;
+  border-style: solid;
+
+  &:hover {
+    transform: translateY(-6%);
+    box-shadow: rgba(0, 0, 0, 0.15) 0.1rem 0.1rem 0.5rem;
+  }
+
+  &:active {
+    transform: translateY(2%);
+  }
 }
 
 .size {
-  &-xs {
-    padding: 0.5rem 1.15rem;
-    font-size: 0.625rem;
-  }
   &-sm {
-    padding: 1rem 2rem;
-    font-size: 0.875rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
   }
   &-md {
-    padding: 1.8rem 3.2rem;
-    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
   }
   &-lg {
-    padding: 2.2rem 4.2rem;
-    font-size: 1.125rem;
+    padding: 7rem 1.4rem;
+    font-size: 1rem;
+  }
+}
+
+.icon {
+  width: initial;
+}
+
+@mixin filledColor($color-main, $color-hover) {
+  color: var(--color-text-inverted);
+  background-color: $color-main;
+  border-color: $color-main;
+
+  &:hover:not(:disabled) {
+    background-color: $color-hover;
+    border-color: $color-hover;
+  }
+}
+
+.color {
+  &-primary {
+    &-filled {
+      @include filledColor(var(--color-primary), var(--color-primary-hover));
+    }
+
+    &-outlined {
+    }
+  }
+  &-secondary {
+    &-filled {
+      @include filledColor(
+        var(--color-secondary),
+        var(--color-secondary-hover)
+      );
+    }
+
+    &-outlined {
+    }
+  }
+  &-success {
+    &-filled {
+      @include filledColor(var(--color-success), var(--color-success-hover));
+    }
+
+    &-outlined {
+    }
+  }
+  &-warning {
+    &-filled {
+      @include filledColor(var(--color-warning), var(--color-warning-hover));
+    }
+
+    &-outlined {
+    }
+  }
+  &-danger {
+    &-filled {
+      @include filledColor(var(--color-danger), var(--color-danger-hover));
+    }
+
+    &-outlined {
+    }
+  }
+  &-info {
+    &-filled {
+      @include filledColor(var(--color-info), var(--color-info-hover));
+    }
+
+    &-outlined {
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 /**
  * @param {string} variant - 'filled' | 'outlined'
- * @param {string} size - 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+ * @param {string} size - ' 'sm' | 'md' | 'lg'
  * @param {string} color - 'primary' | 'secondary' | 'danger' | 'info' | 'success'
  * @param {fontAwesome icon} icon - font awesome icon value
  * @param {boolean} isLoading - is the button in a loading state
@@ -15,7 +15,7 @@ const Button = ({
   children,
   variant = "filled",
   size = "md",
-  color = "basic",
+  color = "primary",
   className = "",
   icon,
   isLoading,
@@ -25,10 +25,11 @@ const Button = ({
 }) => {
   const buttonStyles = classNames(
     styles.button,
-    styles[variant],
-    styles[`color-${color}`],
-    styles["size-" + size],
+
+    styles[`color-${color}-${variant}`],
+    styles[`size-${size}`],
     {
+      [styles.icon]: !!icon,
       [styles.loading]: isLoading,
       [styles.disabled]: isDisabled,
       [styles[variant + "-loading"]]: isLoading,

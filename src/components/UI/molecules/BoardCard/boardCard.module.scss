@@ -2,25 +2,18 @@
   // background value set using inline jsx styles
 
   height: 10rem;
-  width: 15.625rem;
+  width: 18rem;
 
-  padding: 1.25rem;
+  padding: 0.75rem;
   margin: 0.625rem;
 
   display: flex;
   flex-direction: column;
 
   border-radius: 0.3rem;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 2rem 6rem -0.8rem inset,
-    rgba(0, 0, 0, 0.3) 0px 1rem 2rem -1rem inset;
-  //   box-shadow: rgba(0, 0, 0, 0.15) 0.1rem 0.1rem 0.2rem;
 
-  &:hover {
-    .actions {
-      opacity: 1;
-      visibility: visible;
-    }
-  }
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 2rem 6rem -0.8rem inset,
+    rgba(0, 0, 0, 0.3) 0px 1rem 5rem 1rem inset;
 }
 
 .title {
@@ -33,9 +26,4 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-
-  opacity: 0;
-  visibility: none;
-
-  transition: opacity 0.2s;
 }

@@ -14,8 +14,9 @@ const BoardCard = ({ title, slug }) => {
         {title}
       </Heading>
       <div className={styles.actions}>
-        <Button>delete</Button>
-        <button>go to board</button>
+        <Button color="danger" icon aria-label="Delete this board" />
+
+        <Button>go to board</Button>
       </div>
     </div>
   );
