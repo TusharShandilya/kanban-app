@@ -34,7 +34,7 @@ const Button = ({
     styles[`color-${color}-${variant}`],
     styles[`size-${size}`],
     {
-      [styles.isIconOnly]: !!icon && !children,
+      [styles.isIconOnly]: !children,
       [styles.loading]: isLoading,
       [styles.disabled]: isDisabled,
       [styles[variant + "-loading"]]: isLoading,

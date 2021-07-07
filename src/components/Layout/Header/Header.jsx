@@ -1,3 +1,5 @@
+import { DarkModeToggle } from "../../UI";
+
 import styles from "./header.module.scss";
 
 const Header = () => {
@@ -6,7 +8,7 @@ const Header = () => {
       <div className="">Home nav here</div>
       <div className="">Logo here</div>
       <div className="">
-        <span>Dark Mode toggle</span>
+        <DarkModeToggle />
         <span>User menu open here</span>
       </div>
     </div>
