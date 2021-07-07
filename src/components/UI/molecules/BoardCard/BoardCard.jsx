@@ -1,5 +1,5 @@
 import { randomRgbValue } from "../../../../utils";
-import { Heading } from "../../atoms";
+import { Button, Heading } from "../../atoms";
 
 import styles from "./boardCard.module.scss";
 
@@ -14,7 +14,7 @@ const BoardCard = ({ title, slug }) => {
         {title}
       </Heading>
       <div className={styles.actions}>
-        <button>delete</button>
+        <Button>delete</Button>
         <button>go to board</button>
       </div>
     </div>

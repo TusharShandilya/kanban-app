@@ -1,0 +1,41 @@
+.button {
+  line-height: 2.2rem;
+  border-radius: 5px;
+  width: 100%;
+
+  cursor: pointer;
+
+  transition: all 0.2s;
+  text-align: center;
+  height: inherit;
+}
+
+.size {
+  &-xs {
+    padding: 0.5rem 1.15rem;
+    font-size: 0.625rem;
+  }
+  &-sm {
+    padding: 1rem 2rem;
+    font-size: 0.875rem;
+  }
+  &-md {
+    padding: 1.8rem 3.2rem;
+    font-size: 1rem;
+  }
+  &-lg {
+    padding: 2.2rem 4.2rem;
+    font-size: 1.125rem;
+  }
+}
+
+.loading {
+  pointer-events: none;
+  cursor: progress;
+  opacity: 0.6;
+}
+.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.3;
+}
