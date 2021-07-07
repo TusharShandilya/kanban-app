@@ -1,7 +1,7 @@
 export const randomRoundValue = (max) => Math.floor(Math.random() * max);
 
-export const randomRgbValue = (opacity = 1) => {
-  return `rgba(${randomRoundValue(255)}, ${randomRoundValue(
-    255
-  )}, ${randomRoundValue(255)}, ${opacity})`;
+export const randomRgbValue = (opacity = 1, seed = 255) => {
+  return `rgba(${randomRoundValue(seed)}, ${randomRoundValue(
+    seed
+  )}, ${randomRoundValue(seed)}, ${opacity})`;
 };

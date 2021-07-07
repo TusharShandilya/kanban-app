@@ -9,6 +9,7 @@
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 import classNames from "classnames";
 
@@ -24,6 +25,7 @@ const Button = ({
   isLoading,
   isDisabled,
   onClick,
+  to,
   ...rest
 }) => {
   const buttonStyles = classNames(
@@ -53,12 +55,26 @@ const Button = ({
     <FontAwesomeIcon icon={icon} />
   );
 
-  return (
-    <button onClick={handleClick} className={buttonStyles} {...rest}>
+  const content = (
+    <>
       {renderedIcon}
       {children && <span className={styles.btnText}>{children}</span>}
-    </button>
+    </>
   );
+
+  if (to && !isLoading && !isDisabled) {
+    return (
+      <Link to={to} className={buttonStyles}>
+        {content}
+      </Link>
+    );
+  } else {
+    return (
+      <button onClick={handleClick} className={buttonStyles} {...rest}>
+        {content}
+      </button>
+    );
+  }
 };
 
 export default Button;
