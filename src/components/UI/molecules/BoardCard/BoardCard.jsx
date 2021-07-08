@@ -1,7 +1,7 @@
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import { randomRgbValue } from "../../../../utils";
-import { Button, Heading } from "../../atoms";
+import { Button, Card, Heading } from "../../atoms";
 
 import styles from "./boardCard.module.scss";
 
@@ -11,7 +11,7 @@ const BoardCard = ({ title, slug }) => {
   };
 
   return (
-    <div className={styles.card} style={boardStyles}>
+    <Card className={styles.card} style={boardStyles}>
       <Heading size="4" className={styles.title}>
         {title}
       </Heading>
@@ -23,7 +23,7 @@ const BoardCard = ({ title, slug }) => {
           Go to board
         </Button>
       </div>
-    </div>
+    </Card>
   );
 };
 

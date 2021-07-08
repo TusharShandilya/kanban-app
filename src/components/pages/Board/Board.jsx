@@ -22,8 +22,13 @@ const BoardPage = () => {
   return (
     <Container size="fluid">
       <Heading>{info.title}</Heading>
-      {info.cards.map((card) => (
-        <div>{card.content}</div>
+      {info.lists.map((list) => (
+        <section>
+          <Heading>{list.title}</Heading>
+          {list.cards.map((card) => (
+            <div>{card.content}</div>
+          ))}
+        </section>
       ))}
     </Container>
   );

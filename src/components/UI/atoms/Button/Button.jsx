@@ -52,7 +52,7 @@ const Button = ({
   const renderedIcon = isLoading ? (
     <FontAwesomeIcon icon={faCircleNotch} spin />
   ) : (
-    <FontAwesomeIcon icon={icon} />
+    icon && <FontAwesomeIcon icon={icon} />
   );
 
   const content = (
