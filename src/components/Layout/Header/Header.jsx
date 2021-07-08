@@ -7,7 +7,7 @@ const Header = () => {
     <div className={styles.header}>
       <div className="">Home nav here</div>
       <div className="">Logo here</div>
-      <div className="">
+      <div className={styles.actions}>
         <DarkModeToggle />
         <span>User menu open here</span>
       </div>

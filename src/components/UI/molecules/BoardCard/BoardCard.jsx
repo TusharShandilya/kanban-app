@@ -7,12 +7,12 @@ import styles from "./boardCard.module.scss";
 
 const BoardCard = ({ title, slug }) => {
   const boardStyles = {
-    background: randomRgbValue(0.7, 200),
+    background: randomRgbValue(1, 200),
   };
 
   return (
     <div className={styles.card} style={boardStyles}>
-      <Heading isInverted size="4" className={styles.title}>
+      <Heading size="4" className={styles.title}>
         {title}
       </Heading>
       {/* TODO: Last Updated on*/}

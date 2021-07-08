@@ -47,7 +47,7 @@
 }
 
 @mixin filledColor($color-main, $color-hover) {
-  color: var(--color-text-inverted);
+  color: var(--color-white);
   background-color: $color-main;
   border-color: $color-main;
 

@@ -37,7 +37,14 @@ const DarkModeToggle = () => {
   const icon = isDarkMode ? faMoon : faSun;
 
   return (
-    <Button className={darkModeStyle} onClick={handleToggle} icon={icon} />
+    <Button
+      aria-label={`Dark mode toggle. Current mode: ${
+        isDarkMode ? "dark" : "light"
+      }`}
+      className={darkModeStyle}
+      onClick={handleToggle}
+      icon={icon}
+    />
   );
 };
 

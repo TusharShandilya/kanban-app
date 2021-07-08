@@ -21,6 +21,10 @@ html {
   --color-warning-hover: #a88217;
   --color-danger: #b62d2d;
   --color-danger-hover: #910b0b;
+
+  // FIXED
+  --color-amber: #ffa033;
+  --color-white: #ffffff;
 }
 
 html[data-theme="dark"] {
@@ -30,13 +34,13 @@ html[data-theme="dark"] {
   --color-secondary: #ff9633;
   --color-secondary-hover: #faa657;
 
-  --color-text-inverted: #fcfcfc;
+  --color-text-inverted: #232425;
   --color-text: #ececec;
 
   --color-border: #b8b8b8;
 
   --color-bg-primary: #313336;
-  --color-bg-secondary: #dcdcdc;
+  --color-bg-secondary: #6b6b6b;
 
   --color-info: #6673ff;
   --color-info-hover: #7c87ff;
