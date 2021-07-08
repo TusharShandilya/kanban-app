@@ -1,3 +1,4 @@
+import Navigation from "./Navigation/Navigation";
 import { DarkModeToggle } from "../../UI";
 
 import styles from "./header.module.scss";
@@ -5,7 +6,7 @@ import styles from "./header.module.scss";
 const Header = () => {
   return (
     <div className={styles.header}>
-      <div className="">Home nav here</div>
+      <Navigation />
       <div className="">Logo here</div>
       <div className={styles.actions}>
         <DarkModeToggle />
