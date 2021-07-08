@@ -1,4 +1,4 @@
-import { faHome, faCog } from "@fortawesome/free-solid-svg-icons";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 import { Button } from "../../../UI";
 
