@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getBoardById } from "../../../api/axios";
-import { Container, Heading } from "../../UI";
+import { Container, Heading, ListCard } from "../../UI";
 
 const BoardPage = () => {
   const [info, setInfo] = useState();
@@ -21,14 +21,9 @@ const BoardPage = () => {
 
   return (
     <Container size="fluid">
-      <Heading>{info.title}</Heading>
+      <Heading className="is-text-centered">{info.title}</Heading>
       {info.lists.map((list) => (
-        <section>
-          <Heading>{list.title}</Heading>
-          {list.cards.map((card) => (
-            <div>{card.content}</div>
-          ))}
-        </section>
+        <ListCard title={list.title} cards={list.cards} />
       ))}
     </Container>
   );
