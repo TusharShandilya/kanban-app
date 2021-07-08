@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
 
@@ -18,7 +18,7 @@ const DarkModeToggle = () => {
     htmlElem.setAttribute("data-theme", isDark ? "dark" : "light");
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (localStorage.getItem("_theme") === "dark") {
       setAppDarkMode(true);
       setIsDarkMode(true);
@@ -29,7 +29,7 @@ const DarkModeToggle = () => {
   }, []);
 
   const handleToggle = () => {
-    localStorage.setItem("_theme", isDarkMode ? "light" : "darkMode");
+    localStorage.setItem("_theme", isDarkMode ? "light" : "dark");
     setAppDarkMode(!isDarkMode);
     setIsDarkMode(!isDarkMode);
   };
