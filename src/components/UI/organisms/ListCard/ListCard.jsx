@@ -1,13 +1,19 @@
 import styles from "./listCard.module.scss";
 
 import { Card, Heading } from "../../atoms";
+import ContentCard from "../ContentCard/ContentCard";
 
 const ListCard = ({ title, cards }) => {
   return (
     <Card className={styles.card}>
-      <Heading size="4">{title}</Heading>
+      <div className={styles.actions}>
+        <Heading isBold size="6">
+          {title}
+        </Heading>
+        <div className="menu">Menu</div>
+      </div>
       {cards.map((card) => (
-        <Heading size="6">{card.content}</Heading>
+        <ContentCard key={card.id} card={card} />
       ))}
     </Card>
   );

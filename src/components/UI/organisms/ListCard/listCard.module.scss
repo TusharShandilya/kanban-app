@@ -3,3 +3,13 @@
   width: 20rem;
   height: fit-content;
 }
+
+.actions {
+  margin: 0.625rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
