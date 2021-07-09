@@ -41,6 +41,7 @@ const DarkModeToggle = () => {
       aria-label={`Dark mode toggle. Current mode: ${
         isDarkMode ? "dark" : "light"
       }`}
+      aria-checked={isDarkMode}
       className={darkModeStyle}
       onClick={handleToggle}
       icon={icon}
