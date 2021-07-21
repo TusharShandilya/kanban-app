@@ -1,13 +1,13 @@
-import React from "react";
-import { faPenSquare } from "@fortawesome/free-solid-svg-icons";
+import React from 'react'
+import { faPenSquare } from '@fortawesome/free-solid-svg-icons'
 
-import { Button, Card } from "../../atoms";
+import { Card } from '../../atoms'
 
-import styles from "./contentCard.module.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styles from './contentCard.module.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const ContentCard = ({ card }) => {
-  const { id, content } = card;
+  const { content } = card
 
   return (
     <Card className={styles.card}>
@@ -16,7 +16,7 @@ const ContentCard = ({ card }) => {
         <FontAwesomeIcon icon={faPenSquare} />
       </div>
     </Card>
-  );
-};
+  )
+}
 
-export default ContentCard;
+export default ContentCard
