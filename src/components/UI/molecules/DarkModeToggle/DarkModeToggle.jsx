@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState, useCallback } from "react";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
 
@@ -13,25 +13,33 @@ const DarkModeToggle = () => {
     [styles.isDark]: isDarkMode,
   });
 
-  const setAppDarkMode = (isDark) => {
+  const setDarkModeInBrowser = (isDark) => {
+    localStorage.setItem("_theme", isDark ? "dark" : "light");
+
     const htmlElem = document.querySelector("html");
     htmlElem.setAttribute("data-theme", isDark ? "dark" : "light");
   };
 
-  useLayoutEffect(() => {
-    if (localStorage.getItem("_theme") === "dark") {
-      setAppDarkMode(true);
-      setIsDarkMode(true);
-    } else {
-      setAppDarkMode(false);
-      setIsDarkMode(false);
-    }
+  const setDarkModeValue = useCallback((value) => {
+    setDarkModeInBrowser(value);
+    setIsDarkMode(value);
   }, []);
 
+  useLayoutEffect(() => {
+    const isOSThemeDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const localStoreTheme = localStorage.getItem("_theme");
+
+    if ((!localStoreTheme && isOSThemeDark) || localStoreTheme === "dark") {
+      setDarkModeValue(true);
+    } else {
+      setDarkModeValue(false);
+    }
+  }, [setDarkModeValue]);
+
   const handleToggle = () => {
-    localStorage.setItem("_theme", isDarkMode ? "light" : "dark");
-    setAppDarkMode(!isDarkMode);
-    setIsDarkMode(!isDarkMode);
+    setDarkModeValue(!isDarkMode);
   };
 
   const icon = isDarkMode ? faMoon : faSun;
