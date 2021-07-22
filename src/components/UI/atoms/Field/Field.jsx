@@ -11,10 +11,10 @@ const Field = ({
   ...rest
 }) => {
   const fieldStyles = classNames(
-    styles.field,
+    styles.input,
     { [styles.disabled]: disabled },
-    `${styles.color}-${color}`,
-    `${styles.size}-${size}`,
+    styles[`color-${color}`],
+    styles[`size-${size}`],
     className,
   )
 

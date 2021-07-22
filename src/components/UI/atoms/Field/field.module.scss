@@ -1,0 +1,36 @@
+.input {
+  color: var(--color-neutral-100);
+
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+
+  outline-offset: 0.2rem;
+}
+
+.color {
+  &-basic {
+    border-color: var(--color-bg-secondary);
+  }
+  &-danger {
+    border-color: var(--color-danger);
+  }
+  &-primary {
+    border-color: var(--color-primary);
+  }
+}
+
+.size {
+  &-sm {
+    padding: 0.15rem 0.3rem;
+    font-size: 0.875rem;
+  }
+  &-md {
+    padding: 0.5rem 0.8rem;
+    font-size: 1rem;
+  }
+  &-lg {
+    padding: 0.6rem 1rem;
+    font-size: 1.4rem;
+  }
+}

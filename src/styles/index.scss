@@ -25,9 +25,11 @@ html {
   // FIXED
   --color-amber: #ffa033;
   --color-white: #ffffff;
+
+  --color-neutral-100: #101010;
 }
 
-html[data-theme="dark"] {
+html[data-theme='dark'] {
   --color-primary: #3344ff;
   --color-primary-hover: #5765ff;
 
@@ -52,8 +54,8 @@ html[data-theme="dark"] {
   --color-danger-hover: #fa2727;
 }
 
-@import "reset";
-@import "utilities";
+@import 'reset';
+@import 'utilities';
 
 *,
 *::after,
