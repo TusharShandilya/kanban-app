@@ -1,7 +1,7 @@
-import styles from "./listCard.module.scss";
+import styles from './listCard.module.scss'
 
-import { Card, Heading } from "../../atoms";
-import ContentCard from "../ContentCard/ContentCard";
+import { Card, Heading } from '../../atoms'
+import ContentCard from '../ContentCard/ContentCard'
 
 const ListCard = ({ title, cards }) => {
   return (
@@ -12,11 +12,13 @@ const ListCard = ({ title, cards }) => {
         </Heading>
         <div className="menu">Menu</div>
       </div>
-      {cards.map((card) => (
-        <ContentCard key={card.id} card={card} />
-      ))}
+      <div className={styles.cards}>
+        {cards.map((card) => (
+          <ContentCard key={card.id} card={card} />
+        ))}
+      </div>
     </Card>
-  );
-};
+  )
+}
 
-export default ListCard;
+export default ListCard

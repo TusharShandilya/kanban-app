@@ -1,6 +1,7 @@
 html,
 body {
   box-sizing: border-box;
+  background-color: var(--color-bg-primary);
 }
 
 a,
@@ -13,5 +14,5 @@ a:visited {
 
 html,
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }

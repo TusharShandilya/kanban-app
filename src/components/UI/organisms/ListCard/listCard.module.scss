@@ -1,7 +1,14 @@
 .card {
   background: var(--color-bg-secondary);
   width: 20rem;
-  height: fit-content;
+
+  min-height: 20vh;
+  max-height: 75vh;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .actions {
@@ -12,4 +19,9 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+}
+
+.cards {
+  flex: 1;
+  overflow-y: auto;
 }
