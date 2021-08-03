@@ -22,6 +22,10 @@ html {
   --color-danger: #b62d2d;
   --color-danger-hover: #910b0b;
 
+  --color-scroll-track: #f5f5f5;
+  --color-scroll-thumb: #747474;
+  --color-scroll-hover: #424141;
+
   // FIXED
   --color-amber: #ffa033;
   --color-white: #ffffff;
@@ -52,6 +56,10 @@ html[data-theme='dark'] {
   --color-warning-hover: #ffcf4a;
   --color-danger: #cc3f3f;
   --color-danger-hover: #fa2727;
+
+  --color-scroll-track: #b4c9ff;
+  --color-scroll-thumb: #01327c;
+  --color-scroll-hover: #3b53bb;
 }
 
 @import 'reset';
