@@ -1,19 +1,19 @@
-import Navigation from "./Navigation/Navigation";
-import { DarkModeToggle } from "../../UI";
+import Navigation from './Navigation/Navigation'
+import { DarkModeToggle } from '../../UI'
 
-import styles from "./header.module.scss";
+import styles from './header.module.scss'
 
 const Header = () => {
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <Navigation />
       <div className="">Logo here</div>
       <div className={styles.actions}>
         <DarkModeToggle />
         <span>User menu open here</span>
       </div>
-    </div>
-  );
-};
+    </header>
+  )
+}
 
-export default Header;
+export default Header

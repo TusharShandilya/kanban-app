@@ -1,11 +1,9 @@
 .list {
   overflow-y: hidden;
-  height: 100%;
+  flex: 1;
 }
 .row {
   width: fit-content;
-  height: 100%;
   display: flex;
-
   overflow-y: auto;
 }

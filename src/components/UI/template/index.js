@@ -1,3 +1,2 @@
-import Container from "./Container/Container";
-
-export { Container };
+export { default as Container } from './Container/Container'
+export { default as Flex } from './Flex/Flex'
