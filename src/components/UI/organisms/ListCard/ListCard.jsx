@@ -7,7 +7,7 @@ const ListCard = ({ title, cards }) => {
   return (
     <Card className={styles.card}>
       <div className={styles.actions}>
-        <Heading isBold size="6">
+        <Heading className={styles.title} size="1">
           {title}
         </Heading>
         <div className="menu">Menu</div>
