@@ -1,14 +1,14 @@
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
-import { randomRgbValue } from "../../../../utils";
-import { Button, Card, Heading } from "../../atoms";
+import { randomRgbValue } from '../../../../utils'
+import { Button, Card, Heading } from '../../atoms'
 
-import styles from "./boardCard.module.scss";
+import styles from './boardCard.module.scss'
 
-const BoardCard = ({ title, slug }) => {
+const BoardCard = ({ title, id }) => {
   const boardStyles = {
     background: randomRgbValue(1, 200),
-  };
+  }
 
   return (
     <Card className={styles.card} style={boardStyles}>
@@ -19,12 +19,12 @@ const BoardCard = ({ title, slug }) => {
       <div className={styles.actions}>
         <Button color="danger" icon={faTrash} aria-label="Delete this board" />
 
-        <Button to={`/board/${slug}`} color="success">
+        <Button to={`/board/${id}`} color="success">
           Go to board
         </Button>
       </div>
     </Card>
-  );
-};
+  )
+}
 
-export default BoardCard;
+export default BoardCard

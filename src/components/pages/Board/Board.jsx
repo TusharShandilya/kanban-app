@@ -1,32 +1,37 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-import { getBoardById } from '../../../api/axios'
+import { fetchBoardsById } from '../../../store/boardsSlice'
 
-import { Container, Heading, ListCardList } from '../../UI'
+import { Container, Heading, ListCards } from '../../UI'
 
 import styles from './board.module.scss'
 
 const BoardPage = () => {
-  const [info, setInfo] = useState()
+  const { entities: boards, loading } = useSelector((state) => state.boards)
+  const dispatch = useDispatch()
+
   const { boardId } = useParams()
 
-  useEffect(() => {
-    if (boardId) {
-      getBoardById(boardId).then((res) => {
-        setInfo(res)
-      })
+  const currBoard = useMemo(() => {
+    if (!loading) {
+      return boards[boardId]
     }
-  }, [boardId])
+  }, [loading, boards, boardId])
 
-  if (!info) {
+  useEffect(() => {
+    dispatch(fetchBoardsById(boardId))
+  }, [dispatch, boardId])
+
+  if (loading || !currBoard) {
     return <Heading>Loading...</Heading>
   }
 
   return (
     <Container size="fluid" isFullHeight className={styles.container}>
-      <Heading className="is-text-centered">{info.title}</Heading>
-      <ListCardList lists={info.lists} />
+      <Heading className="is-text-centered">{currBoard.title}</Heading>
+      <ListCards lists={currBoard.lists} />
     </Container>
   )
 }

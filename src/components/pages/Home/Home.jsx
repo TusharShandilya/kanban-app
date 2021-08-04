@@ -1,19 +1,22 @@
-import { useEffect, useState } from "react";
-import { getBoards } from "../../../api/axios";
-import { BoardCardList, Heading, Container } from "../../UI";
+import { useEffect, useMemo } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { fetchBoards } from '../../../store/boardsSlice'
+
+import { Heading, Container, BoardCards } from '../../UI'
 
 const HomePage = () => {
-  const [boards, setBoards] = useState(null);
+  const state = useSelector((state) => state.boards)
+  const dispatch = useDispatch()
+
+  const boards = useMemo(() => {
+    return Object.values(state.entities)
+  }, [state])
 
   useEffect(() => {
-    getBoards()
-      .then((res) => {
-        setBoards(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+    dispatch(fetchBoards())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <Container size="fluid">
@@ -21,10 +24,10 @@ const HomePage = () => {
         My Boards
       </Heading>
       <Container size="lg">
-        {!!boards ? <BoardCardList boards={boards} /> : <p>Loading...</p>}
+        {state.loading ? <p>Loading...</p> : <BoardCards boards={boards} />}
       </Container>
     </Container>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

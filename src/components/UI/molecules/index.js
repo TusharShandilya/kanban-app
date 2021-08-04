@@ -1,4 +1,2 @@
-import BoardCard from "./BoardCard/BoardCard";
-import DarkModeToggle from "./DarkModeToggle/DarkModeToggle";
-
-export { BoardCard, DarkModeToggle };
+export { default as BoardCard } from './BoardCard/BoardCard'
+export { default as DarkModeToggle } from './DarkModeToggle/DarkModeToggle'
