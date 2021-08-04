@@ -1,5 +1,5 @@
-import { BoardCard } from "../../molecules";
-import styles from "./boardCardList.module.scss";
+import { BoardCard } from '../../molecules'
+import styles from './boardCardList.module.scss'
 
 const BoardCardList = ({ boards }) => {
   return (
@@ -7,10 +7,10 @@ const BoardCardList = ({ boards }) => {
       {/* TODO: Create new board button */}
 
       {boards.map((board) => (
-        <BoardCard key={board.id} title={board.title} slug={board.slug} />
+        <BoardCard key={board.id} title={board.title} id={board.id} />
       ))}
     </section>
-  );
-};
+  )
+}
 
-export default BoardCardList;
+export default BoardCardList

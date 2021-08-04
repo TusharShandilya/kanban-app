@@ -3,12 +3,12 @@ import { normalize, schema } from 'normalizr'
 
 import { boardsAPI } from '../../api/axios'
 
-const cardsSchema = new schema.Entity('cards')
-const listsSchema = new schema.Entity('lists', {
-  cards: [cardsSchema],
+const cardsEntity = new schema.Entity('cards')
+const listsEntity = new schema.Entity('lists', {
+  cards: [cardsEntity],
 })
 const boardsEntity = new schema.Entity('boards', {
-  lists: [listsSchema],
+  lists: [listsEntity],
 })
 
 export const fetchBoards = createAsyncThunk('boards/fetchAll', async () => {
@@ -19,14 +19,39 @@ export const fetchBoards = createAsyncThunk('boards/fetchAll', async () => {
   return normalized.entities
 })
 
-// export const fetchBoardsById = createAsyncThunk(
-//   'boards/fetchBoardById',
-//   async (boardId) => {
-//     const response = await boardsAPI.getBoardById(boardId)
-//     const normalized = normalize(response)
-//   },
-// )
+export const fetchBoardsById = createAsyncThunk(
+  'boards/fetchBoardById',
+  async (boardId) => {
+    const response = await boardsAPI.getBoardById(boardId)
 
+    const normalized = normalize(response, boardsEntity)
+
+    return normalized.entities
+  },
+)
+
+export const fetchBoardByIdReducer = {
+  fulfilled: (state, action) => {
+    const board = action.payload.boards
+    const boardId = Object.keys(board)[0]
+
+    if (!state.ids.find((id) => id === boardId)) {
+      state.ids.push(boardId)
+    }
+    state.entities[boardId] = board[boardId]
+
+    state.loading = false
+    state.errors = []
+  },
+  pending: (state, action) => {
+    state.errors = []
+    state.loading = true
+  },
+  rejected: (state, action) => {
+    state.loading = false
+    state.errors = action.payload.errors
+  },
+}
 export const fetchBoardReducer = {
   fulfilled: (state, action) => {
     state.entities = action.payload.boards

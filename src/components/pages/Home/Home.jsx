@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { boardsSlice, fetchBoards } from '../../../store/boardsSlice'
+
+import { fetchBoards } from '../../../store/boardsSlice'
 
 import { BoardCardList, Heading, Container } from '../../UI'
 
@@ -14,7 +15,7 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(fetchBoards())
-  }, [dispatch])
+  }, [])
 
   return (
     <Container size="fluid">

@@ -2,8 +2,9 @@ import styles from './listCard.module.scss'
 
 import { Card, Heading } from '../../atoms'
 import ContentCard from '../ContentCard/ContentCard'
+import ContentCards from '../ContentCards/ContentCards'
 
-const ListCard = ({ title, cards }) => {
+const ListCard = ({ info: { title, cards } }) => {
   return (
     <Card className={styles.card}>
       <div className={styles.actions}>
@@ -12,11 +13,7 @@ const ListCard = ({ title, cards }) => {
         </Heading>
         <div className="menu">Menu</div>
       </div>
-      <div className={styles.cards}>
-        {cards.map((card) => (
-          <ContentCard key={card.id} card={card} />
-        ))}
-      </div>
+      <ContentCards cards={cards} />
     </Card>
   )
 }
