@@ -1,7 +1,7 @@
 import styles from './listCard.module.scss'
 
 import { Card, Heading } from '../../atoms'
-import ContentCard from '../ContentCard/ContentCard'
+
 import ContentCards from '../ContentCards/ContentCards'
 
 const ListCard = ({ info: { title, cards } }) => {

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { fetchBoards } from '../../../store/boardsSlice'
 
-import { BoardCardList, Heading, Container } from '../../UI'
+import { Heading, Container, BoardCards } from '../../UI'
 
 const HomePage = () => {
   const state = useSelector((state) => state.boards)
@@ -15,6 +15,7 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(fetchBoards())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -23,7 +24,7 @@ const HomePage = () => {
         My Boards
       </Heading>
       <Container size="lg">
-        {state.loading ? <p>Loading...</p> : <BoardCardList boards={boards} />}
+        {state.loading ? <p>Loading...</p> : <BoardCards boards={boards} />}
       </Container>
     </Container>
   )

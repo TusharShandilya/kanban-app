@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 
 import { fetchBoardsById } from '../../../store/boardsSlice'
 
-import { Container, Heading, ListCardList } from '../../UI'
+import { Container, Heading, ListCards } from '../../UI'
 
 import styles from './board.module.scss'
 
@@ -22,7 +22,7 @@ const BoardPage = () => {
 
   useEffect(() => {
     dispatch(fetchBoardsById(boardId))
-  }, [boardId])
+  }, [dispatch, boardId])
 
   if (loading || !currBoard) {
     return <Heading>Loading...</Heading>
@@ -31,7 +31,7 @@ const BoardPage = () => {
   return (
     <Container size="fluid" isFullHeight className={styles.container}>
       <Heading className="is-text-centered">{currBoard.title}</Heading>
-      <ListCardList lists={currBoard.lists} />
+      <ListCards lists={currBoard.lists} />
     </Container>
   )
 }

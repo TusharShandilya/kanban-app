@@ -2,9 +2,9 @@ import { useSelector } from 'react-redux'
 
 import ListCard from '../ListCard/ListCard'
 
-import styles from './listCardList.module.scss'
+import styles from './listCards.module.scss'
 
-const ListCardList = ({ lists }) => {
+const ListCards = ({ lists }) => {
   const { entities, loading } = useSelector((state) => state.lists)
 
   if (loading) {
@@ -23,4 +23,4 @@ const ListCardList = ({ lists }) => {
   )
 }
 
-export default ListCardList
+export default ListCards

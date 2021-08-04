@@ -1,7 +1,8 @@
 import { BoardCard } from '../../molecules'
-import styles from './boardCardList.module.scss'
 
-const BoardCardList = ({ boards }) => {
+import styles from './boardCards.module.scss'
+
+const BoardCards = ({ boards }) => {
   return (
     <section className={styles.list}>
       {/* TODO: Create new board button */}
@@ -13,4 +14,4 @@ const BoardCardList = ({ boards }) => {
   )
 }
 
-export default BoardCardList
+export default BoardCards

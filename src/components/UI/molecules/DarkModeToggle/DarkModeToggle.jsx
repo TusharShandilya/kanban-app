@@ -2,6 +2,8 @@ import { useLayoutEffect, useState, useCallback } from 'react'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 import classNames from 'classnames'
 
+import { setDarkModeInBrowser } from './darkModeToggle.utils'
+
 import { Button } from '../../atoms'
 
 import styles from './darkModeToggle.module.scss'
@@ -13,17 +15,14 @@ const DarkModeToggle = () => {
     [styles.isDark]: isDarkMode,
   })
 
-  const setDarkModeInBrowser = (isDark) => {
-    localStorage.setItem('_theme', isDark ? 'dark' : 'light')
-
-    const htmlElem = document.querySelector('html')
-    htmlElem.setAttribute('data-theme', isDark ? 'dark' : 'light')
-  }
-
   const setDarkModeValue = useCallback((value) => {
     setDarkModeInBrowser(value)
     setIsDarkMode(value)
   }, [])
+
+  const handleToggle = () => {
+    setDarkModeValue(!isDarkMode)
+  }
 
   useLayoutEffect(() => {
     const isOSThemeDark =
@@ -37,10 +36,6 @@ const DarkModeToggle = () => {
       setDarkModeValue(false)
     }
   }, [setDarkModeValue])
-
-  const handleToggle = () => {
-    setDarkModeValue(!isDarkMode)
-  }
 
   const icon = isDarkMode ? faMoon : faSun
 
