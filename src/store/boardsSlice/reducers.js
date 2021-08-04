@@ -3,7 +3,13 @@ import { normalize, schema } from 'normalizr'
 
 import { boardsAPI } from '../../api/axios'
 
-const boardsEntity = new schema.Entity('boards')
+const cardsSchema = new schema.Entity('cards')
+const listsSchema = new schema.Entity('lists', {
+  cards: [cardsSchema],
+})
+const boardsEntity = new schema.Entity('boards', {
+  lists: [listsSchema],
+})
 
 export const fetchBoards = createAsyncThunk('boards/fetchAll', async () => {
   const response = await boardsAPI.getBoards()
@@ -12,6 +18,14 @@ export const fetchBoards = createAsyncThunk('boards/fetchAll', async () => {
 
   return normalized.entities
 })
+
+// export const fetchBoardsById = createAsyncThunk(
+//   'boards/fetchBoardById',
+//   async (boardId) => {
+//     const response = await boardsAPI.getBoardById(boardId)
+//     const normalized = normalize(response)
+//   },
+// )
 
 export const fetchBoardReducer = {
   fulfilled: (state, action) => {
