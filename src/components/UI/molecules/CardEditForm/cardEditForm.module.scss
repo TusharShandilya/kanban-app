@@ -4,6 +4,14 @@
   padding: 0.5rem;
   align-items: center;
 
+  background-color: var(--color-bg-primary);
+  padding: 1rem;
+  border-radius: 5px;
+
+  width: 15rem;
+
+  position: absolute;
+
   label {
     align-self: flex-start;
   }
