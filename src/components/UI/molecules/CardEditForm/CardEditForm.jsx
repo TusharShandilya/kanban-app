@@ -1,3 +1,4 @@
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
 import { Button, Field, Label, Overlay, Text } from '../../atoms'
 
@@ -34,6 +35,14 @@ const CardEditForm = ({ initialValue, toggleEditable, ...rest }) => {
   return (
     <Overlay toggleOverlay={toggleEditable}>
       <form {...rest} className={styles.form} onSubmit={handleSubmit}>
+        <Button
+          size="sm"
+          color="danger"
+          onClick={toggleEditable}
+          icon={faTimes}
+          className={styles.closeBtn}
+        />
+
         <Label htmlFor="card-edit-form">Edit Card</Label>
         <Field
           autoFocus

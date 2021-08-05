@@ -8,8 +8,6 @@
   padding: 1rem;
   border-radius: 5px;
 
-  width: 15rem;
-
   position: absolute;
 
   label {
@@ -25,4 +23,10 @@
     align-self: flex-end;
     margin-bottom: 0.75rem;
   }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 0.25rem);
 }
