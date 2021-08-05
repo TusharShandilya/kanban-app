@@ -4,7 +4,7 @@ export const cardEditFormUtils = {
       valid: true,
       error: '',
     }
-    if (text.length >= textMaxLength) {
+    if (text.length > textMaxLength) {
       validityData.valid = false
       validityData.error = 'length error'
     }

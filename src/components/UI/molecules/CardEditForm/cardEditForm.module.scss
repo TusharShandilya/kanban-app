@@ -10,5 +10,11 @@
 
   textarea {
     height: 6rem;
+    resize: none;
+  }
+
+  span {
+    align-self: flex-end;
+    margin-bottom: 0.75rem;
   }
 }

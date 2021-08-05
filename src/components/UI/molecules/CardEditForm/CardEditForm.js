@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Button, Field, Label } from '../../atoms'
+import { Button, Field, Label, Text } from '../../atoms'
 
 import styles from './cardEditForm.module.scss'
 import { cardEditFormUtils } from './cardEditForm.utils'
@@ -25,6 +25,7 @@ const CardEditForm = ({ initialValue, ...rest }) => {
 
     if (valid) {
       setContentValue(event.target.value)
+      setErrors('')
     } else {
       setErrors(error)
     }
@@ -32,15 +33,18 @@ const CardEditForm = ({ initialValue, ...rest }) => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <Label htmlFor="card-edit-form">Edit</Label>
+      <Label htmlFor="card-edit-form">Edit Card</Label>
       <Field
         id="card-edit-form"
         styles={styles.textarea}
         onChange={handleChange}
         value={contentValue}
+        color={errors.length ? 'danger' : 'basic'}
         as="textarea"
       />
-      {contentValue.length}/{contentMaxLength}
+      <Text color={errors.length ? 'danger' : 'basic'} as="span" size="caption">
+        {contentValue.length}/{contentMaxLength}
+      </Text>
       <Button color="success" size="sm" type="submit">
         Save
       </Button>
