@@ -4,6 +4,12 @@
   padding: 0.5rem;
   align-items: center;
 
+  background-color: var(--color-bg-primary);
+  padding: 1rem;
+  border-radius: 5px;
+
+  position: absolute;
+
   label {
     align-self: flex-start;
   }
@@ -17,4 +23,10 @@
     align-self: flex-end;
     margin-bottom: 0.75rem;
   }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 0.25rem);
 }
