@@ -11,12 +11,15 @@
 .color {
   &-basic {
     border-color: var(--color-bg-secondary);
+    outline-color: var(--color-bg-secondary);
   }
   &-danger {
     border-color: var(--color-danger);
+    outline-color: var(--color-danger);
   }
   &-primary {
     border-color: var(--color-primary);
+    outline-color: var(--color-primary);
   }
 }
 

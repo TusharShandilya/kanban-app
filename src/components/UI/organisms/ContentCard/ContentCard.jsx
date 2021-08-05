@@ -3,7 +3,7 @@ import { faPenSquare, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
 
-import { Card } from '../../atoms'
+import { Card, Text } from '../../atoms'
 import { CardEditForm } from '../../molecules'
 
 import styles from './contentCard.module.scss'
@@ -18,7 +18,11 @@ const ContentCard = ({ card: { content } }) => {
       className={classNames(styles.card, { [styles.isEditable]: isEditable })}
     >
       <div className={styles.content}>
-        {isEditable ? <CardEditForm initialValue={content} /> : content}
+        {isEditable ? (
+          <CardEditForm initialValue={content} />
+        ) : (
+          <Text>{content}</Text>
+        )}
       </div>
       <div className={styles.menu} onClick={toggleEditable}>
         <FontAwesomeIcon icon={isEditable ? faTimesCircle : faPenSquare} />
