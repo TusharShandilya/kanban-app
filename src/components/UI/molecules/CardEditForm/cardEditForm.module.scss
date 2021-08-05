@@ -1,0 +1,14 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  align-items: center;
+
+  label {
+    align-self: flex-start;
+  }
+
+  textarea {
+    height: 6rem;
+  }
+}

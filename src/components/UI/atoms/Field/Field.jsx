@@ -7,6 +7,7 @@ const Field = ({
   disabled,
   color = 'basic',
   size = 'md',
+  as,
   className,
   ...rest
 }) => {
@@ -18,7 +19,9 @@ const Field = ({
     className,
   )
 
-  return <input type={type} className={fieldStyles} {...rest} />
+  const Component = as || 'input'
+
+  return <Component type={type} className={fieldStyles} {...rest} />
 }
 
 export default Field

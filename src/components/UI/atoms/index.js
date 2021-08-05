@@ -1,6 +1,5 @@
-import Button from './Button/Button'
-import Card from './Card/Card'
-import Field from './Field/Field'
-import Heading from './Heading/heading'
-
-export { Heading, Button, Card, Field }
+export { default as Button } from './Button/Button'
+export { default as Card } from './Card/Card'
+export { default as Field } from './Field/Field'
+export { default as Heading } from './Heading/heading'
+export { default as Label } from './Label/Label'
