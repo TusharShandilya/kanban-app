@@ -1,9 +1,11 @@
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
+
 import { Button, Field, Label, Overlay, Text } from '../../atoms'
 
-import styles from './cardEditForm.module.scss'
 import { cardEditFormUtils } from './cardEditForm.utils'
+
+import styles from './cardEditForm.module.scss'
 
 const CardEditForm = ({ initialValue, toggleEditable, ...rest }) => {
   const [contentValue, setContentValue] = useState('')
@@ -33,7 +35,7 @@ const CardEditForm = ({ initialValue, toggleEditable, ...rest }) => {
   }
 
   return (
-    <Overlay toggleOverlay={toggleEditable}>
+    <Overlay aria-modal="true" toggleOverlay={toggleEditable}>
       <form {...rest} className={styles.form} onSubmit={handleSubmit}>
         <Button
           size="sm"
