@@ -1,4 +1,5 @@
 import { useMemo, useRef, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { faPenSquare } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
@@ -7,8 +8,10 @@ import { Card, Text } from '../../atoms'
 import { CardEditForm } from '../../molecules'
 
 import styles from './contentCard.module.scss'
+import { cardsSlice } from '../../../../store/cardsSlice'
 
 const ContentCard = ({ card: { id, content } }) => {
+  const dispatch = useDispatch()
   const [isEditable, setIsEditable] = useState(false)
   const cardRef = useRef(null)
 
@@ -19,6 +22,10 @@ const ContentCard = ({ card: { id, content } }) => {
       return cardRef.current.getBoundingClientRect()
     }
   }, [isEditable, cardRef])
+
+  const handleCardUpdate = (id) => (content) => {
+    dispatch(cardsSlice.actions.update({ id, content }))
+  }
 
   return (
     <Card.WithRef
@@ -33,7 +40,7 @@ const ContentCard = ({ card: { id, content } }) => {
               left: cardPosition.left,
               width: cardPosition.width,
             }}
-            id={id}
+            onSubmit={handleCardUpdate(id)}
             toggleEditable={toggleEditable}
             initialValue={content}
           />

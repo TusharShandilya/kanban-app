@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import { Button, Field, Label, Overlay, Text } from '../../atoms'
@@ -7,26 +7,22 @@ import { Button, Field, Label, Overlay, Text } from '../../atoms'
 import { cardEditFormUtils } from './cardEditForm.utils'
 
 import styles from './cardEditForm.module.scss'
-import { cardsSlice } from '../../../../store/cardsSlice'
 
-const CardEditForm = ({ initialValue, toggleEditable, id, ...rest }) => {
-  const dispatch = useDispatch()
+const CardEditForm = ({ initialValue, toggleEditable, onSubmit, ...rest }) => {
   const [contentValue, setContentValue] = useState('')
   const [errors, setErrors] = useState('')
   const contentMaxLength = 3000
 
   useEffect(() => {
-    setContentValue(initialValue)
+    if (initialValue) {
+      setContentValue(initialValue)
+    }
   }, [initialValue])
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    dispatch(
-      cardsSlice.actions.update({
-        id,
-        content: contentValue,
-      }),
-    )
+
+    onSubmit(contentValue)
     toggleEditable()
   }
 
@@ -48,6 +44,7 @@ const CardEditForm = ({ initialValue, toggleEditable, id, ...rest }) => {
     <Overlay aria-modal="true" toggleOverlay={toggleEditable}>
       <form {...rest} className={styles.form} onSubmit={handleSubmit}>
         <Button
+          type="reset"
           size="sm"
           color="danger"
           onClick={toggleEditable}
