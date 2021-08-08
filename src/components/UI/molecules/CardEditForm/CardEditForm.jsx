@@ -1,13 +1,16 @@
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import { Button, Field, Label, Overlay, Text } from '../../atoms'
 
 import { cardEditFormUtils } from './cardEditForm.utils'
 
 import styles from './cardEditForm.module.scss'
+import { cardsSlice } from '../../../../store/cardsSlice'
 
-const CardEditForm = ({ initialValue, toggleEditable, ...rest }) => {
+const CardEditForm = ({ initialValue, toggleEditable, id, ...rest }) => {
+  const dispatch = useDispatch()
   const [contentValue, setContentValue] = useState('')
   const [errors, setErrors] = useState('')
   const contentMaxLength = 3000
@@ -18,6 +21,13 @@ const CardEditForm = ({ initialValue, toggleEditable, ...rest }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    dispatch(
+      cardsSlice.actions.update({
+        id,
+        content: contentValue,
+      }),
+    )
+    toggleEditable()
   }
 
   const handleChange = (event) => {

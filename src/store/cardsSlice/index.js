@@ -12,7 +12,14 @@ const initialState = {
 export const cardsSlice = createSlice({
   name: 'cards',
   initialState,
-  reducers: {},
+  reducers: {
+    update: (state, { payload: { id, content } }) => {
+      /**
+       * Convert to async thunk
+       */
+      state.entities[id].content = content
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchBoards.fulfilled, fetchBoardsCardReducer.fulfilled)
     builder.addCase(fetchBoards.pending, fetchBoardsCardReducer.pending)

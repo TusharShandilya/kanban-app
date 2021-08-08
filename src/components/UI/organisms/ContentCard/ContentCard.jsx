@@ -8,7 +8,7 @@ import { CardEditForm } from '../../molecules'
 
 import styles from './contentCard.module.scss'
 
-const ContentCard = ({ card: { content } }) => {
+const ContentCard = ({ card: { id, content } }) => {
   const [isEditable, setIsEditable] = useState(false)
   const cardRef = useRef(null)
 
@@ -33,6 +33,7 @@ const ContentCard = ({ card: { content } }) => {
               left: cardPosition.left,
               width: cardPosition.width,
             }}
+            id={id}
             toggleEditable={toggleEditable}
             initialValue={content}
           />
