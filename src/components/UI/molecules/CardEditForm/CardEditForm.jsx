@@ -52,7 +52,12 @@ const CardEditForm = ({ initialValue, toggleEditable, onSubmit, ...rest }) => {
           className={styles.closeBtn}
         />
 
-        <Label htmlFor="card-edit-form">Edit Card</Label>
+        <Label
+          color={errors.length ? 'danger' : 'basic'}
+          htmlFor="card-edit-form"
+        >
+          Edit Card
+        </Label>
         <Field
           autoFocus
           id="card-edit-form"

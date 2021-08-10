@@ -13,13 +13,16 @@ const Overlay = ({ children, isTransparent, toggleOverlay, ...rest }) => {
   return (
     <div {...rest} className={overlayStyles}>
       {children}
-      <Button
-        icon={faTimes}
-        color="basic"
-        size="sm"
-        onClick={toggleOverlay}
-        className={styles.closeIcon}
-      />
+      {!isTransparent && (
+        <Button
+          icon={faTimes}
+          color="basic"
+          size="sm"
+          onClick={toggleOverlay}
+          className={styles.closeIcon}
+          aria-label="close modal"
+        />
+      )}
     </div>
   )
 }

@@ -2,3 +2,13 @@
   font-weight: 700;
   font-size: 0.9rem;
 }
+
+.color {
+  &-basic {
+    color: var(--color-text);
+  }
+
+  &-danger {
+    color: var(--color-danger);
+  }
+}
