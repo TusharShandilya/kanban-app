@@ -7,11 +7,12 @@ import { Button, Field, Label, Overlay, Text } from '../../atoms'
 import { cardEditFormUtils } from './cardEditForm.utils'
 
 import styles from './cardEditForm.module.scss'
+import { config } from '../../../../config'
 
 const CardEditForm = ({ initialValue, toggleEditable, onSubmit, ...rest }) => {
   const [contentValue, setContentValue] = useState('')
   const [errors, setErrors] = useState('')
-  const contentMaxLength = 3000
+  const { maxLength } = config.card.content
 
   useEffect(() => {
     if (initialValue) {
@@ -29,7 +30,7 @@ const CardEditForm = ({ initialValue, toggleEditable, onSubmit, ...rest }) => {
   const handleChange = (event) => {
     const { valid, error } = cardEditFormUtils.isValid(
       event.target.value,
-      contentMaxLength,
+      maxLength,
     )
 
     if (valid) {
@@ -72,7 +73,7 @@ const CardEditForm = ({ initialValue, toggleEditable, onSubmit, ...rest }) => {
           as="span"
           size="caption"
         >
-          {contentValue.length}/{contentMaxLength}
+          {contentValue.length}/{maxLength}
         </Text>
         <Button
           isDisabled={errors.length}

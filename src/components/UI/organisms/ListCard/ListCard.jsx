@@ -3,8 +3,9 @@ import styles from './listCard.module.scss'
 import { Card, Heading } from '../../atoms'
 
 import ContentCards from '../ContentCards/ContentCards'
+import { CardCreateForm } from '../../molecules'
 
-const ListCard = ({ info: { title, cards } }) => {
+const ListCard = ({ info: { id, title, cards } }) => {
   return (
     <Card className={styles.card}>
       <div className={styles.actions}>
@@ -13,6 +14,7 @@ const ListCard = ({ info: { title, cards } }) => {
         </Heading>
         <div className="menu">Menu</div>
       </div>
+      <CardCreateForm listId={id} />
       <ContentCards cards={cards} />
     </Card>
   )

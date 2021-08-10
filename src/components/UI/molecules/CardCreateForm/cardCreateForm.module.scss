@@ -1,6 +1,6 @@
 .container {
-  width: 90%;
-  margin: auto;
+  width: 100%;
+  margin: 0.5rem auto 0.25rem auto;
 }
 
 .form {
@@ -11,8 +11,13 @@
     height: 6rem;
     resize: none;
   }
+  span {
+    text-align: right;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .group {
   display: flex;
+  margin-bottom: 0.5rem;
 }
