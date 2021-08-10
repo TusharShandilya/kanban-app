@@ -16,3 +16,7 @@ export const fetchBoardsListReducer = {
     // state.errors = []
   },
 }
+
+export const createNewCardReducer = (state, { payload: { listId, id } }) => {
+  state.entities[listId].cards.unshift(id)
+}

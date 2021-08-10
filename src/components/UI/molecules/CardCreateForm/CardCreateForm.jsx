@@ -1,11 +1,14 @@
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { useMemo, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { config } from '../../../../config'
+import { cardsSlice } from '../../../../store/cardsSlice'
 
 import { textLengthValidation } from '../../../../utils'
 import { Button, Field, Label, Text } from '../../atoms'
 
 import styles from './cardCreateForm.module.scss'
+import { makeNewCard } from './cardCreateForm.utils'
 
 const intitalFormState = {
   value: '',
@@ -14,6 +17,7 @@ const intitalFormState = {
 }
 
 const CardCreateForm = ({ listId, ...rest }) => {
+  const dispatch = useDispatch()
   const [form, setForm] = useState(intitalFormState)
 
   const textColor = useMemo(
@@ -25,6 +29,9 @@ const CardCreateForm = ({ listId, ...rest }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+
+    dispatch(cardsSlice.actions.create(makeNewCard(listId, form.value)))
+
     setForm(intitalFormState)
   }
 

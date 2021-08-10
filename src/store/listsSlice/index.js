@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { fetchBoards } from '../boardsSlice'
-import { fetchBoardsListReducer } from './reducers'
+import { cardsSlice } from '../cardsSlice'
+import { createNewCardReducer, fetchBoardsListReducer } from './reducers'
 
 const initialState = {
   ids: [],
@@ -17,6 +18,8 @@ export const listsSlice = createSlice({
     builder.addCase(fetchBoards.fulfilled, fetchBoardsListReducer.fulfilled)
     builder.addCase(fetchBoards.pending, fetchBoardsListReducer.pending)
     builder.addCase(fetchBoards.rejected, fetchBoardsListReducer.rejected)
+
+    builder.addCase(cardsSlice.actions.create, createNewCardReducer)
   },
 })
 

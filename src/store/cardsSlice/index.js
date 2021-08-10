@@ -19,6 +19,12 @@ export const cardsSlice = createSlice({
        */
       state.entities[id].content = content
     },
+    create: (state, { payload: { id, content } }) => {
+      state.entities[id] = {
+        id,
+        content,
+      }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchBoards.fulfilled, fetchBoardsCardReducer.fulfilled)
