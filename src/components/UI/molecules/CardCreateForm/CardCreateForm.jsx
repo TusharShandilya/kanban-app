@@ -1,11 +1,12 @@
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { config } from '../../../../config'
 import { cardsSlice } from '../../../../store/cardsSlice'
 
 import { textLengthValidation } from '../../../../utils'
-import { Button, Field, Label, Text } from '../../atoms'
+import { useOutsideClick } from '../../../hooks/useOutsideClick'
+import { Button, Card, Field, Label, Text } from '../../atoms'
 
 import styles from './cardCreateForm.module.scss'
 import { makeNewCard } from './cardCreateForm.utils'
@@ -19,6 +20,13 @@ const intitalFormState = {
 const CardCreateForm = ({ listId, ...rest }) => {
   const dispatch = useDispatch()
   const [form, setForm] = useState(intitalFormState)
+  const cardRef = useRef()
+
+  const toggleShowForm = () => {
+    setForm((prev) => ({ ...prev, visible: !prev.visible }))
+  }
+
+  useOutsideClick(cardRef, toggleShowForm)
 
   const textColor = useMemo(
     () => (form.error.length ? 'danger' : 'basic'),
@@ -44,17 +52,13 @@ const CardCreateForm = ({ listId, ...rest }) => {
     }
   }
 
-  const toggleShowForm = () => {
-    setForm((prev) => ({ ...prev, visible: !prev.visible }))
-  }
-
   const resetForm = () => {
     setForm(intitalFormState)
   }
 
   if (form.visible) {
     return (
-      <div className={styles.container}>
+      <Card.WithRef ref={cardRef} className={styles.container}>
         <form className={styles.form} onSubmit={handleSubmit}>
           <Label color={textColor} htmlFor="card-create-form">
             Card Content
@@ -91,7 +95,7 @@ const CardCreateForm = ({ listId, ...rest }) => {
             />
           </div>
         </form>
-      </div>
+      </Card.WithRef>
     )
   } else {
     return (
