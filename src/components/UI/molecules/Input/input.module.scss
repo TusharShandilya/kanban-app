@@ -1,6 +1,17 @@
 .meta {
+  width: 100%;
+
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  align-items: flex-start;
 
   margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+
+  .error {
+    flex: 1;
+  }
+  .secondaryText {
+    margin-left: 0.2rem;
+  }
 }

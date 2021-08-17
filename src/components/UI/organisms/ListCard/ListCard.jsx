@@ -3,7 +3,7 @@ import styles from './listCard.module.scss'
 import { Card, Heading } from '../../atoms'
 
 import ContentCards from '../ContentCards/ContentCards'
-import { CardCreateForm } from '../../molecules'
+import CardCreateForm from '../CardCreateForm/CardCreateForm'
 
 const ListCard = ({ info: { id, title, cards } }) => {
   return (

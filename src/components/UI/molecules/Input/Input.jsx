@@ -1,9 +1,16 @@
 import { Field, Label, Text } from '../../atoms'
 
-import styles from './input.styles.scss'
+import styles from './input.module.scss'
 
-const Input = ({ id, label, color, error, secondaryText, ...rest }) => {
-  const componentColor = error ? 'danger' : 'color'
+const Input = ({
+  id,
+  label,
+  color = 'basic',
+  error,
+  secondaryText,
+  ...rest
+}) => {
+  const componentColor = error ? 'danger' : color
 
   return (
     <>
@@ -15,12 +22,22 @@ const Input = ({ id, label, color, error, secondaryText, ...rest }) => {
       <Field color={componentColor} {...rest} id={id} />
       <div className={styles.meta}>
         {error && (
-          <Text as="span" size="caption">
+          <Text
+            className={styles.error}
+            color="danger"
+            as="span"
+            size="caption"
+          >
             {error}
           </Text>
         )}
         {secondaryText && (
-          <Text color={componentColor} as="span" size="caption">
+          <Text
+            className={styles.secondaryText}
+            color={componentColor}
+            as="span"
+            size="caption"
+          >
             {secondaryText}
           </Text>
         )}
