@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
-import { Button, Field, Label, Overlay, Text } from '../../atoms'
-
+import { Button, Overlay } from '../../atoms'
+import { Input } from '../../molecules'
 import { cardEditFormUtils } from './cardEditForm.utils'
 
 import styles from './cardEditForm.module.scss'
@@ -33,8 +33,8 @@ const CardEditForm = ({ initialValue, toggleEditable, onSubmit, ...rest }) => {
       maxLength,
     )
 
+    setContentValue(event.target.value)
     if (valid) {
-      setContentValue(event.target.value)
       setErrors('')
     } else {
       setErrors(error)
@@ -53,28 +53,16 @@ const CardEditForm = ({ initialValue, toggleEditable, onSubmit, ...rest }) => {
           className={styles.closeBtn}
         />
 
-        <Label
-          color={errors.length ? 'danger' : 'basic'}
-          htmlFor="card-edit-form"
-        >
-          Edit Card
-        </Label>
-        <Field
+        <Input
           autoFocus
-          id="card-edit-form"
-          styles={styles.textarea}
+          as="textarea"
           onChange={handleChange}
           value={contentValue}
-          color={errors.length ? 'danger' : 'basic'}
-          as="textarea"
+          error={errors}
+          secondaryText={`${contentValue.length}/${maxLength}`}
+          label="Edit card"
         />
-        <Text
-          color={errors.length ? 'danger' : 'basic'}
-          as="span"
-          size="caption"
-        >
-          {contentValue.length}/{maxLength}
-        </Text>
+
         <Button
           isDisabled={errors.length}
           color="success"

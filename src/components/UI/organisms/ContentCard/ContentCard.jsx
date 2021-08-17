@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
 
 import { Card, Text } from '../../atoms'
-import { CardEditForm } from '../../molecules'
+import CardEditForm from '../CardEditForm/CardEditForm'
 
 import styles from './contentCard.module.scss'
 import { cardsSlice } from '../../../../store/cardsSlice'

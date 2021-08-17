@@ -5,8 +5,9 @@ import { config } from '../../../../config'
 import { cardsSlice } from '../../../../store/cardsSlice'
 
 import { textLengthValidation } from '../../../../utils'
-import { useOutsideClick } from '../../../hooks/useOutsideClick'
+import { useOutsideClick } from '../../../hooks'
 import { Button, Card, Field, Label, Text } from '../../atoms'
+import { Input } from '../../molecules'
 
 import styles from './cardCreateForm.module.scss'
 import { makeNewCard } from './cardCreateForm.utils'
@@ -60,22 +61,17 @@ const CardCreateForm = ({ listId, ...rest }) => {
     return (
       <Card.WithRef ref={cardRef} className={styles.container}>
         <form className={styles.form} onSubmit={handleSubmit}>
-          <Label color={textColor} htmlFor="card-create-form">
-            Card Content
-          </Label>
-          <Field
+          <Input
+            label="Card Content"
+            secondaryText={`${form.value.length}/${maxLength}`}
             autoFocus
-            id="card-create-form"
             styles={styles.textarea}
             onChange={handleChange}
             value={form.value}
-            color={textColor}
+            error={form.error}
             placeholder="Enter content for this card..."
             as="textarea"
           />
-          <Text color={textColor} as="span" size="caption">
-            {form.value.length}/{maxLength}
-          </Text>
           <div className={styles.group}>
             <Button
               isDisabled={form.error.length}
