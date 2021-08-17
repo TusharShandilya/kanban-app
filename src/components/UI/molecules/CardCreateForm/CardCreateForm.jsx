@@ -5,7 +5,7 @@ import { config } from '../../../../config'
 import { cardsSlice } from '../../../../store/cardsSlice'
 
 import { textLengthValidation } from '../../../../utils'
-import { useOutsideClick } from '../../../hooks/useOutsideClick'
+import { useOutsideClick } from '../../../hooks'
 import { Button, Card, Field, Label, Text } from '../../atoms'
 
 import styles from './cardCreateForm.module.scss'
