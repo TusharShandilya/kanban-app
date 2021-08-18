@@ -1,16 +1,17 @@
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { useMemo, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
+
 import { config } from '../../../../config'
 import { cardsSlice } from '../../../../store/cardsSlice'
-
 import { textLengthValidation } from '../../../../utils'
+import { makeNewCard } from './cardCreateForm.utils'
 import { useOutsideClick } from '../../../hooks'
-import { Button, Card, Field, Label, Text } from '../../atoms'
+
+import { Button, Card } from '../../atoms'
 import { Input } from '../../molecules'
 
 import styles from './cardCreateForm.module.scss'
-import { makeNewCard } from './cardCreateForm.utils'
 
 const intitalFormState = {
   value: '',
@@ -28,11 +29,6 @@ const CardCreateForm = ({ listId, ...rest }) => {
   }
 
   useOutsideClick(cardRef, toggleShowForm)
-
-  const textColor = useMemo(
-    () => (form.error.length ? 'danger' : 'basic'),
-    [form.error],
-  )
 
   const { maxLength } = config.card.content
 
