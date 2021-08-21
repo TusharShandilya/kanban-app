@@ -7,6 +7,7 @@ const Input = ({
   label,
   color = 'basic',
   error,
+  required,
   secondaryText,
   ...rest
 }) => {
@@ -17,9 +18,10 @@ const Input = ({
       {label && (
         <Label color={componentColor} htmlFor={id}>
           {label}
+          {required && '*'}
         </Label>
       )}
-      <Field color={componentColor} {...rest} id={id} />
+      <Field required={required} color={componentColor} {...rest} id={id} />
       <div className={styles.meta}>
         {error && (
           <Text
