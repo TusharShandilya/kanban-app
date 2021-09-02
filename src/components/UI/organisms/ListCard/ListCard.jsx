@@ -1,17 +1,17 @@
 import styles from './listCard.module.scss'
 
-import { Card, Heading } from '../../atoms'
+import { Card } from '../../atoms'
 
 import ContentCards from '../ContentCards/ContentCards'
 import CardCreateForm from '../CardCreateForm/CardCreateForm'
+import TitleEditForm from '../TitleEditForm/TitleEditForm'
 
 const ListCard = ({ info: { id, title, cards } }) => {
   return (
     <Card className={styles.card}>
       <div className={styles.actions}>
-        <Heading className={styles.title} size="1">
-          {title}
-        </Heading>
+        <TitleEditForm title={title} headingProps={{ isTitle: true }} />
+
         <div className="menu">Menu</div>
       </div>
       <CardCreateForm listId={id} />

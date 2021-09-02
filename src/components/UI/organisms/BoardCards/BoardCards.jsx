@@ -1,4 +1,4 @@
-import { BoardCard } from '../../molecules'
+import { AddBoardCard, BoardCard } from '../../molecules'
 
 import styles from './boardCards.module.scss'
 
@@ -6,7 +6,7 @@ const BoardCards = ({ boards }) => {
   return (
     <section className={styles.list}>
       {/* TODO: Create new board button */}
-
+      <AddBoardCard />
       {boards.map((board) => (
         <BoardCard key={board.id} title={board.title} id={board.id} />
       ))}
