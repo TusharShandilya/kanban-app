@@ -1,6 +1,6 @@
-import classNames from "classnames";
+import classNames from 'classnames'
 
-import styles from "./heading.module.scss";
+import styles from './heading.module.scss'
 /**
  *
  * @param {string} size values: "1" | "2" | "3" | "4" | "5" | "6"
@@ -10,10 +10,11 @@ import styles from "./heading.module.scss";
  */
 const Heading = ({
   children,
-  size = "3",
+  size = '3',
   className,
   isBold,
   isInverted,
+  isTitle,
   ...rest
 }) => {
   const headingStyles = classNames(
@@ -21,53 +22,54 @@ const Heading = ({
     className,
     styles[`heading-${size}`],
     { [styles.isBold]: isBold },
-    { [styles.isInverted]: isInverted }
-  );
+    { [styles.isInverted]: isInverted },
+    { [styles.isTitle]: isTitle },
+  )
 
   switch (size) {
-    case "1":
+    case '1':
       return (
         <h1 className={headingStyles} {...rest}>
           {children}
         </h1>
-      );
-    case "2":
+      )
+    case '2':
       return (
         <h2 className={headingStyles} {...rest}>
           {children}
         </h2>
-      );
-    case "3":
+      )
+    case '3':
       return (
         <h3 className={headingStyles} {...rest}>
           {children}
         </h3>
-      );
-    case "4":
+      )
+    case '4':
       return (
         <h4 className={headingStyles} {...rest}>
           {children}
         </h4>
-      );
-    case "5":
+      )
+    case '5':
       return (
         <h5 className={headingStyles} {...rest}>
           {children}
         </h5>
-      );
-    case "6":
+      )
+    case '6':
       return (
         <h5 className={headingStyles} {...rest}>
           {children}
         </h5>
-      );
+      )
     default:
       return (
         <h3 className={headingStyles} {...rest}>
           {children}
         </h3>
-      );
+      )
   }
-};
+}
 
-export default Heading;
+export default Heading

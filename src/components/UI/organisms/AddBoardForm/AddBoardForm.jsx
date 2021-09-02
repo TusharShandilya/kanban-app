@@ -1,9 +1,17 @@
 import { Button, Heading } from '../../atoms'
 import { Input } from '../../molecules'
 
-const AddBoardForm = () => {
+const AddBoardForm = ({ onSubmit }) => {
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    if (onSubmit) {
+      onSubmit()
+    }
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <Heading>Add a new board</Heading>
       <Input required label="Board title" />
       <Button>Add</Button>
