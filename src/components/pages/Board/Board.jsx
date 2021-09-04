@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import { fetchBoardsById } from '../../../store/boardsSlice'
 
 import { Container, Heading, ListCards } from '../../UI'
+import TitleEditForm from '../../UI/organisms/TitleEditForm/TitleEditForm'
 
 import styles from './board.module.scss'
 
@@ -30,7 +31,8 @@ const BoardPage = () => {
 
   return (
     <Container size="fluid" isFullHeight className={styles.container}>
-      <Heading className="is-text-centered">{currBoard.title}</Heading>
+      {/* <Heading className="is-text-centered">{currBoard.title}</Heading> */}
+      <TitleEditForm className={styles.form} title={currBoard.title} />
       <ListCards lists={currBoard.lists} />
     </Container>
   )

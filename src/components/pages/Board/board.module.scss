@@ -4,3 +4,12 @@
 
   margin: 0;
 }
+
+.form {
+  margin: auto;
+  form {
+    input[type='text'] {
+      font-size: 1.8rem;
+    }
+  }
+}
